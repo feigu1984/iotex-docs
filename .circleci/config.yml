@@ -12,6 +12,9 @@ jobs:
     - image: circleci/node:8.11.1
 
     steps:
+    - add_ssh_keys:
+        fingerprints:
+          - "bd:35:a4:0a:74:15:24:95:35:23:6b:4f:1d:be:39:4a"
     - checkout
     - restore_cache:
         keys:
@@ -24,7 +27,7 @@ jobs:
         command: |
           git config --global user.email "feigu_1984@qq.com"
           git config --global user.name "feigu1984"
-          echo "machine github.com login puncsky password $GITHUB_TOKEN" > ~/.netrc
+
           sh -x ./deploy.sh
     - save_cache:
         paths:
