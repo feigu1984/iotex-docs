@@ -12,9 +12,7 @@ jobs:
     - image: circleci/node:8.11.1
 
     steps:
-    - add_ssh_keys:
-        fingerprints:
-          - "96:e3:f5:78:c8:8d:8a:01:e6:67:73:aa:02:cc:85:88"
+
     - checkout
     - restore_cache:
         keys:
